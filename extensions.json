@@ -23,7 +23,7 @@
       "version": "1.0.1",
       "author": "Wootzapp Team",
       "download_url": "https://api.github.com/repos/itskartike910/extensions/contents/wootzapp_wallet/wootzapp_wallet.crx",
-      "icon_url": "https://api.github.com/repos/itskartike910/extensions/contents/wootzapp_wallet/icon.png",
+      "icon_url": "https://api.github.com/repos/itskartike910/extensions/contents/wootzapp_wallet/icon.jpg",
       "github_url": "https://github.com/1311-hack1/Extension-Store/tree/main/extensions/data-hive",
       "tags": [
         "wallet",
@@ -99,15 +99,17 @@
     },
     {
       "id": "7",
-      "name": "Test 2",
-      "description": "Test 2",
-      "version": "Test 2",
-      "author": "Test 2",
-      "download_url": "https://api.github.com/repos/itskartike910/extensions/contents/test-2/test-2.crx",
-      "icon_url": "https://api.github.com/repos/itskartike910/extensions/contents/test-2/icon.png",
+      "name": "Camp Network",
+      "description": "An extension to scrap twitter(X) in background for tweets to earn passive money.",
+      "version": "1.0.1",
+      "author": "Kartik",
+      "download_url": "https://api.github.com/repos/itskartike910/extensions/contents/camp_network/camp_network.crx",
+      "icon_url": "https://api.github.com/repos/itskartike910/extensions/contents/camp_network/icon.png",
       "github_url": "https://github.com/1311-hack1/Extension-Store/tree/main/extensions/test-2",
       "tags": [
-        "Test 2"
+        "Scrapping",
+        "earn",
+        "reward"
       ],
       "created_at": "2024-12-27T11:24:32Z",
       "updated_at": "2024-12-27T11:24:32Z"

@@ -1,3 +1,138 @@
+// {
+//   "extensions": [
+//     {
+//       "id": "1",
+//       "name": "Artifact",
+//       "description": "Discover exclusive rewards exclusively for Wootzapp users.",
+//       "version": "0.0.1",
+//       "author": "Wootzapp Team",
+//       "download_url": "https://api.github.com/repos/itskartike910/extensions/contents/artifact/artifact.crx",
+//       "icon_url": "https://api.github.com/repos/itskartike910/extensions/contents/artifact/icon.png",
+//       "github_url": "https://github.com/1311-hack1/Extension-Store/tree/main/extensions/artifact",
+//       "tags": [
+//         "Rewards",
+//         "earn"
+//       ],
+//       "created_at": "2024-12-27T11:06:47Z",
+//       "updated_at": "2024-12-27T11:06:47Z"
+//     },
+//     {
+//       "id": "2",
+//       "name": "Wootzapp Wallet",
+//       "description": "Wallet for Etherium and Solana blockchain networks.",
+//       "version": "1.0.1",
+//       "author": "Wootzapp Team",
+//       "download_url": "https://api.github.com/repos/itskartike910/extensions/contents/wootzapp_wallet/wootzapp_wallet.crx",
+//       "icon_url": "https://api.github.com/repos/itskartike910/extensions/contents/wootzapp_wallet/icon.jpg",
+//       "github_url": "https://github.com/1311-hack1/Extension-Store/tree/main/extensions/data-hive",
+//       "tags": [
+//         "wallet",
+//         "reward",
+//         "earn"
+//       ],
+//       "created_at": "2024-12-27T11:23:12Z",
+//       "updated_at": "2024-12-27T11:23:12Z"
+//     },
+//     {
+//       "id": "3",
+//       "name": "Data Hive",
+//       "description": "Data Scraping",
+//       "version": "1.2.4",
+//       "author": "Wootzapp Team",
+//       "download_url": "https://api.github.com/repos/itskartike910/extensions/contents/data-hive/data-hive.crx",
+//       "icon_url": "https://api.github.com/repos/itskartike910/extensions/contents/data-hive/icon.png",
+//       "github_url": "https://github.com/1311-hack1/Extension-Store/tree/main/extensions/data-hive",
+//       "tags": [
+//         "data",
+//         "reward",
+//         "earn"
+//       ],
+//       "created_at": "2024-12-27T11:23:12Z",
+//       "updated_at": "2024-12-27T11:23:12Z"
+//     },
+//     {
+//       "id": "4",
+//       "name": "ext-store",
+//       "description": "ext store",
+//       "version": "ext store XD",
+//       "author": "ext store",
+//       "download_url": "https://api.github.com/repos/itskartike910/extensions/contents/ext-store/ext-store.crx",
+//       "icon_url": "https://api.github.com/repos/itskartike910/extensions/contents/ext-store/icon.png",
+//       "github_url": "https://github.com/1311-hack1/Extension-Store/tree/main/extensions/ext-store",
+//       "tags": [
+//         "ext store"
+//       ],
+//       "created_at": "2024-12-27T11:23:33Z",
+//       "updated_at": "2024-12-27T11:23:33Z"
+//     },
+//     {
+//       "id": "5",
+//       "name": "Rise Of Gamers",
+//       "description": "This is Arts Test Extension",
+//       "version": "1.2.4",
+//       "author": "RiseOfGamers",
+//       "download_url": "https://api.github.com/repos/itskartike910/extensions/contents/rise-of-gamers/rise-of-gamers.crx",
+//       "icon_url": "https://api.github.com/repos/itskartike910/extensions/contents/rise-of-gamers/icon.png",
+//       "github_url": "https://github.com/1311-hack1/Extension-Store/tree/main/extensions/rise-of-gamers",
+//       "tags": [
+//         "Game",
+//         "art"
+//       ],
+//       "created_at": "2024-12-27T11:23:52Z",
+//       "updated_at": "2024-12-27T11:23:52Z"
+//     },
+//     {
+//       "id": "6",
+//       "name": "Test Extension",
+//       "description": "Testing the Wootzapp Extension Store",
+//       "version": "127.155.800548",
+//       "author": "Sagar",
+//       "download_url": "https://api.github.com/repos/itskartike910/extensions/contents/test-extension/test-extension.crx",
+//       "icon_url": "https://api.github.com/repos/itskartike910/extensions/contents/test-extension/icon.png",
+//       "github_url": "https://github.com/1311-hack1/Extension-Store/tree/main/extensions/test-extension",
+//       "tags": [
+//         "test",
+//         "ext"
+//       ],
+//       "created_at": "2024-12-27T11:24:06Z",
+//       "updated_at": "2024-12-27T11:24:06Z"
+//     },
+//     {
+//       "id": "7",
+//       "name": "Camp Network",
+//       "description": "An extension to scrap twitter(X) in background for tweets to earn passive money.",
+//       "version": "1.0.1",
+//       "author": "Kartik",
+//       "download_url": "https://api.github.com/repos/itskartike910/extensions/contents/camp_network/camp_network.crx",
+//       "icon_url": "https://api.github.com/repos/itskartike910/extensions/contents/camp_network/icon.png",
+//       "github_url": "https://github.com/1311-hack1/Extension-Store/tree/main/extensions/test-2",
+//       "tags": [
+//         "Scrapping",
+//         "earn",
+//         "reward"
+//       ],
+//       "created_at": "2024-12-27T11:24:32Z",
+//       "updated_at": "2024-12-27T11:24:32Z"
+//     },
+//     {
+//       "id": "8",
+//       "name": "New Ext",
+//       "description": "New Ext",
+//       "version": "21.46.8088",
+//       "author": "Kartik",
+//       "download_url": "https://api.github.com/itskartike910/extensions/contents/new-ext/new-ext.crx",
+//       "icon_url": "https://api.github.com/repos/itskartike910/extensions/contents/new-ext/icon.png",
+//       "github_url": "https://github.com/1311-hack1/Extension-Store/tree/main/extensions/new-ext",
+//       "tags": [
+//         "New Ext"
+//       ],
+//       "created_at": "2024-12-27T11:25:25Z",
+//       "updated_at": "2024-12-27T11:25:25Z"
+//     }
+//   ]
+// }
+
+
 {
   "extensions": [
     {
@@ -6,8 +141,8 @@
       "description": "Discover exclusive rewards exclusively for Wootzapp users.",
       "version": "0.0.1",
       "author": "Wootzapp Team",
-      "download_url": "https://api.github.com/repos/itskartike910/extensions/contents/artifact/artifact.crx",
-      "icon_url": "https://api.github.com/repos/itskartike910/extensions/contents/artifact/icon.png",
+      "download_url": "https://raw.githubusercontent.com/itskartike910/extensions/main/artifact/artifact.crx",
+      "icon_url": "https://raw.githubusercontent.com/itskartike910/extensions/main/artifact/icon.png",
       "github_url": "https://github.com/1311-hack1/Extension-Store/tree/main/extensions/artifact",
       "tags": [
         "Rewards",
@@ -22,8 +157,8 @@
       "description": "Wallet for Etherium and Solana blockchain networks.",
       "version": "1.0.1",
       "author": "Wootzapp Team",
-      "download_url": "https://api.github.com/repos/itskartike910/extensions/contents/wootzapp_wallet/wootzapp_wallet.crx",
-      "icon_url": "https://api.github.com/repos/itskartike910/extensions/contents/wootzapp_wallet/icon.jpg",
+      "download_url": "https://raw.githubusercontent.com/itskartike910/extensions/main/wootzapp_wallet/wootzapp_wallet.crx",
+      "icon_url": "https://raw.githubusercontent.com/itskartike910/extensions/main/wootzapp_wallet/icon.jpg",
       "github_url": "https://github.com/1311-hack1/Extension-Store/tree/main/extensions/data-hive",
       "tags": [
         "wallet",
@@ -39,8 +174,8 @@
       "description": "Data Scraping",
       "version": "1.2.4",
       "author": "Wootzapp Team",
-      "download_url": "https://api.github.com/repos/itskartike910/extensions/contents/data-hive/data-hive.crx",
-      "icon_url": "https://api.github.com/repos/itskartike910/extensions/contents/data-hive/icon.png",
+      "download_url": "https://raw.githubusercontent.com/itskartike910/extensions/main/data-hive/data-hive.crx",
+      "icon_url": "https://raw.githubusercontent.com/itskartike910/extensions/main/data-hive/icon.png",
       "github_url": "https://github.com/1311-hack1/Extension-Store/tree/main/extensions/data-hive",
       "tags": [
         "data",
@@ -56,8 +191,8 @@
       "description": "ext store",
       "version": "ext store XD",
       "author": "ext store",
-      "download_url": "https://api.github.com/repos/itskartike910/extensions/contents/ext-store/ext-store.crx",
-      "icon_url": "https://api.github.com/repos/itskartike910/extensions/contents/ext-store/icon.png",
+      "download_url": "https://raw.githubusercontent.com/itskartike910/extensions/main/ext-store/ext-store.crx",
+      "icon_url": "https://raw.githubusercontent.com/itskartike910/extensions/main/ext-store/icon.png",
       "github_url": "https://github.com/1311-hack1/Extension-Store/tree/main/extensions/ext-store",
       "tags": [
         "ext store"
@@ -71,8 +206,8 @@
       "description": "This is Arts Test Extension",
       "version": "1.2.4",
       "author": "RiseOfGamers",
-      "download_url": "https://api.github.com/repos/itskartike910/extensions/contents/rise-of-gamers/rise-of-gamers.crx",
-      "icon_url": "https://api.github.com/repos/itskartike910/extensions/contents/rise-of-gamers/icon.png",
+      "download_url": "https://raw.githubusercontent.com/itskartike910/extensions/main/rise-of-gamers/rise-of-gamers.crx",
+      "icon_url": "https://raw.githubusercontent.com/itskartike910/extensions/main/rise-of-gamers/icon.png",
       "github_url": "https://github.com/1311-hack1/Extension-Store/tree/main/extensions/rise-of-gamers",
       "tags": [
         "Game",
@@ -87,8 +222,8 @@
       "description": "Testing the Wootzapp Extension Store",
       "version": "127.155.800548",
       "author": "Sagar",
-      "download_url": "https://api.github.com/repos/itskartike910/extensions/contents/test-extension/test-extension.crx",
-      "icon_url": "https://api.github.com/repos/itskartike910/extensions/contents/test-extension/icon.png",
+      "download_url": "https://raw.githubusercontent.com/itskartike910/extensions/main/test-extension/test-extension.crx",
+      "icon_url": "https://raw.githubusercontent.com/itskartike910/extensions/main/test-extension/icon.png",
       "github_url": "https://github.com/1311-hack1/Extension-Store/tree/main/extensions/test-extension",
       "tags": [
         "test",
@@ -103,8 +238,8 @@
       "description": "An extension to scrap twitter(X) in background for tweets to earn passive money.",
       "version": "1.0.1",
       "author": "Kartik",
-      "download_url": "https://api.github.com/repos/itskartike910/extensions/contents/camp_network/camp_network.crx",
-      "icon_url": "https://api.github.com/repos/itskartike910/extensions/contents/camp_network/icon.png",
+      "download_url": "https://raw.githubusercontent.com/itskartike910/extensions/main/camp_network/camp_network.crx",
+      "icon_url": "https://raw.githubusercontent.com/itskartike910/extensions/main/camp_network/icon.png",
       "github_url": "https://github.com/1311-hack1/Extension-Store/tree/main/extensions/test-2",
       "tags": [
         "Scrapping",
@@ -120,8 +255,8 @@
       "description": "New Ext",
       "version": "21.46.8088",
       "author": "Kartik",
-      "download_url": "https://api.github.com/itskartike910/extensions/contents/new-ext/new-ext.crx",
-      "icon_url": "https://api.github.com/repos/itskartike910/extensions/contents/new-ext/icon.png",
+      "download_url": "https://raw.githubusercontent.com/itskartike910/extensions/main/new-ext/new-ext.crx",
+      "icon_url": "https://raw.githubusercontent.com/itskartike910/extensions/main/new-ext/icon.png",
       "github_url": "https://github.com/1311-hack1/Extension-Store/tree/main/extensions/new-ext",
       "tags": [
         "New Ext"

@@ -57,7 +57,7 @@
       "description": "An extension to earn rewards for browsing the web.",
       "version": "0.0.1",
       "author": "Wootzapp Team",
-      "download_url": "https://raw.githubusercontent.com/itskartike910/extensions/main/data-hive/data-hive.crx",
+      "download_url": "https://raw.githubusercontent.com/itskartike910/extensions/main/data-hive/dist.crx",
       "icon_url": "https://raw.githubusercontent.com/wootzapp/ext-store/main/Datahive/repo/public/icons/icon128.png",
       "github_url": "https://github.com/wootzapp/ext-store/tree/main/Datahive/repo",
       "tags": [

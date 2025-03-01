@@ -20,7 +20,7 @@
     {
       "id": "2",
       "name": "Wootzapp Wallet",
-      "description": "Wallet for Etherium and Solana blockchain networks.",
+      "description": "Wallet for Ethereum and Solana blockchain networks.",
       "version": "0.0.1",
       "author": "Wootzapp Team",
       "download_url": "https://raw.githubusercontent.com/wootzapp/ext-store/main/Wootzapp%20Wallet/Wootzapp%20Wallet.crx",

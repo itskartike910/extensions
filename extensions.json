@@ -1,7 +1,7 @@
 {
   "extensions": [
     {
-      "id": "1",
+      "id": "allmdcfldidgeghfoioaaiammdlpmnnk",
       "name": "Artifact",
       "description": "An extension to earn rewards for browsing the web.",
       "version": "0.0.1",
@@ -18,7 +18,7 @@
       "updated_at": "2025-02-26T15:00:00Z"
     },
     {
-      "id": "2",
+      "id": "fdjkflhcgjnhmbfpbojnalpfmomjggkj",
       "name": "Wootzapp Wallet",
       "description": "Wallet for Ethereum and Solana blockchain networks.",
       "version": "0.0.1",
@@ -35,7 +35,7 @@
       "updated_at": "2025-02-26T15:00:00Z"
     },
     {
-      "id": "3",
+      "id": "amjlbcejmaebkjfmeenkcijgpjpieepc",
       "name": "Camp Network",
       "description": "An extension to earn passive money by scrolling tweets on twitter(X).",
       "version": "0.0.1",
@@ -52,7 +52,7 @@
       "updated_at": "2025-02-26T15:00:00Z"
     },
     {
-      "id": "4",
+      "id": "gfciojmkoheeffnkgpfdjdkfiffnohmb",
       "name": "Data Hive",
       "description": "An extension to earn rewards for browsing the web.",
       "version": "0.0.1",
@@ -69,7 +69,7 @@
       "updated_at": "2025-02-26T15:00:00Z"
     },
     {
-      "id": "5",
+      "id": "nofldplihhlkcpbejlmccfafcpeejaef",
       "name": "Sapien",
       "description": "Earn rewards by playing games.",
       "version": "0.0.1",

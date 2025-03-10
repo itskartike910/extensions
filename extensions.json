@@ -57,8 +57,8 @@
       "description": "BlockMesh Network allows you to generate passive income from your excessive bandwidth.",
       "version": "0.0.497",
       "author": "Wootzapp Team",
-      "download_url": "https://raw.githubusercontent.com/itskartike910/ext-store/blockmesh/Blockmesh%20Network/Blockmesh.crx",
-      "icon_url": "https://raw.githubusercontent.com/itskartike910/ext-store/blockmesh/Blockmesh%20Network/repo/extension/extension_js/assets/blockmesh-icon-transparent-600x600.png",
+      "download_url": "https://raw.githubusercontent.com/wootzapp/ext-store/main/Blockmesh%20Network/Blockmesh.crx",
+      "icon_url": "https://raw.githubusercontent.com/wootzapp/ext-store/main/Blockmesh%20Network/repo/extension/extension_js/assets/blockmesh-icon-transparent-600x600.png",
       "github_url": "https://github.com/wootzapp/ext-store/tree/main/Blockmesh%20Network/repo",
       "tags": [
         "Earn",

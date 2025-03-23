@@ -40,7 +40,7 @@
       "description": "Tap Eclipse website integration with wootzapp wallet.",
       "version": "1.0.0",
       "author": "Wootzapp Team",
-      "download_url": "https://github.com/devjangid15/ext-store/blob/main/Eclipse/tap.eclipse.crx",
+      "download_url": "https://raw.githubusercontent.com/devjangid15/ext-store/main/Eclipse/tap.eclipse.crx",
       "icon_url": "https://raw.githubusercontent.com/wootzapp/ext-store/main/Eclipse/repo/public/icons/icon128.png",
       "github_url": "https://github.com/wootzapp/ext-store/tree/main/Eclipse/repo",
       "tags": [

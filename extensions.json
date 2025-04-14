@@ -14,7 +14,7 @@
         "Rewards",
         "Browse"
       ],
-      "default_extension" : false,
+      "default_extension" : true,
       "created_at": "2025-02-26T15:00:00Z",
       "updated_at": "2025-02-26T15:00:00Z"
     },
@@ -32,7 +32,7 @@
         "Ethereum",
         "Solana"
       ],
-      "default_extension" : false,
+      "default_extension" : true,
       "created_at": "2025-02-26T15:00:00Z",
       "updated_at": "2025-02-26T15:00:00Z"
     },
@@ -50,7 +50,7 @@
         "Web3",
         "Crypto"
       ],
-      "default_extension" : false,
+      "default_extension" : true,
       "created_at": "2025-02-26T15:00:00Z",
       "updated_at": "2025-02-26T15:00:00Z"
     },
@@ -68,7 +68,7 @@
         "Rewards",
         "Scraping"
       ],
-      "default_extension" : false,
+      "default_extension" : true,
       "created_at": "2025-02-26T15:00:00Z",
       "updated_at": "2025-02-26T15:00:00Z"
     },
@@ -86,7 +86,7 @@
         "Rewards",
         "Scraping"
       ],
-      "default_extension" : false,
+      "default_extension" : true,
       "created_at": "2025-02-26T15:00:00Z",
       "updated_at": "2025-02-26T15:00:00Z"
     },
@@ -104,7 +104,7 @@
         "Rewards",
         "Data Mining"
       ],
-      "default_extension" : false,
+      "default_extension" : true,
       "created_at": "2025-02-26T15:00:00Z",
       "updated_at": "2025-02-26T15:00:00Z"
     },
@@ -122,7 +122,7 @@
         "Rewards",
         "Games"
       ],
-      "default_extension" : false,
+      "default_extension" : true,
       "created_at": "2025-02-26T15:00:00Z",
       "updated_at": "2025-02-26T15:00:00Z"
     }

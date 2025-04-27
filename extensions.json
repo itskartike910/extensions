@@ -91,6 +91,24 @@
       "updated_at": "2025-02-26T15:00:00Z"
     },
     {
+      "id": "agjibinbfgapiccgicponbdambneljnp",
+      "name": "ZK Proofing",
+      "description": "An extension to generate cryptographic proofs for zk-SNARKs.",
+      "version": "1.0.0",
+      "author": "Wootzapp Team",
+      "download_url": "https://raw.githubusercontent.com/itskartike910/ext-store/zkproofing/ZK%20Proofing/ZkProof.crx",
+      "icon_url": "https://raw.githubusercontent.com/itskartike910/ext-store/zkproofing/ZK%20Proofing/repo/public/icons/icon128.png",
+      "github_url": "https://github.com/wootzapp/ext-store/tree/main/ZK%20Proofing/repo",
+      "tags": [
+        "Crypto",
+        "Proofs",
+        "Starknet"
+      ],
+      "default_extension" : false,
+      "created_at": "2025-04-26T15:00:00Z",
+      "updated_at": "2025-04-26T15:00:00Z"
+    },
+    {
       "id": "gfciojmkoheeffnkgpfdjdkfiffnohmb",
       "name": "Data Hive",
       "description": "An extension to earn rewards for browsing the web.",

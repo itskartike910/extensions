@@ -96,8 +96,8 @@
       "description": "An extension to generate cryptographic proofs for zk-SNARKs.",
       "version": "1.0.0",
       "author": "Wootzapp Team",
-      "download_url": "https://raw.githubusercontent.com/itskartike910/ext-store/zkproofing/ZK%20Proofing/ZkProof.crx",
-      "icon_url": "https://raw.githubusercontent.com/itskartike910/ext-store/zkproofing/ZK%20Proofing/repo/public/icons/icon128.png",
+      "download_url": "https://raw.githubusercontent.com/wootzapp/ext-store/main/ZK%20Proofing/ZkProof.crx",
+      "icon_url": "https://raw.githubusercontent.com/wootzapp/ext-store/main/ZK%20Proofing/repo/public/icons/icon128.png",
       "github_url": "https://github.com/wootzapp/ext-store/tree/main/ZK%20Proofing/repo",
       "tags": [
         "Crypto",

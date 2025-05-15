@@ -1,0 +1,266 @@
+name: Create or Update Extension
+
+on:
+  issues:
+    types: [opened, edited]
+
+jobs:
+  process-extension:
+    if: contains(github.event.issue.labels.*.name, 'new-extension')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Parse Issue and Download Files
+        id: parse
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const body = context.payload.issue.body;
+            const lines = body.split('\n');
+            const extension = {};
+            
+            // Parse basic info
+            lines.forEach(line => {
+              if (line.startsWith('**Your Crx Manifest ID:**')) extension.id = line.replace('**Your Crx Manifest ID:**', '').trim();
+              if (line.startsWith('**Name:**')) extension.name = line.replace('**Name:**', '').trim();
+              if (line.startsWith('**Description:**')) extension.description = line.replace('**Description:**', '').trim();
+              if (line.startsWith('**Version:**')) extension.version = line.replace('**Version:**', '').trim();
+              if (line.startsWith('**Author:**')) extension.author = line.replace('**Author:**', '').trim();
+              if (line.toLowerCase().includes('tags') && line.includes('comma-separated')) {
+                const tagsMatch = line.match(/:(.*)/);
+                if (tagsMatch) {
+                  const tagsStr = tagsMatch[1].trim();
+                  extension.tags = tagsStr.split(',').map(tag => tag.trim()).filter(tag => tag);
+                  console.log('Found tags:', extension.tags);
+                }
+              }
+            });
+
+            // Find ZIP attachment
+            const attachmentPatterns = [
+              /https:\/\/user-images\.githubusercontent\.com\/[^\s)]+\.zip/g,
+              /https:\/\/github\.com\/[^\s)]+\/files\/[^\s)]+\.zip/g
+            ];
+            
+            let attachments = [];
+            attachmentPatterns.forEach(pattern => {
+              const matches = body.match(pattern) || [];
+              attachments.push(...matches);
+            });
+            
+            const zipFile = attachments[0];
+            if (!zipFile) {
+              console.log('No ZIP file found in attachments');
+              throw new Error('Missing required ZIP file containing .crx and icon.');
+            }
+
+            // Keep the original URL for GitHub-uploaded files
+            extension.zip_url = zipFile;
+            console.log('ZIP URL:', extension.zip_url);
+            return extension;
+
+      - name: Create Directory Structure
+        run: |
+          mkdir -p extensions
+          touch extensions/.gitkeep
+
+      - name: Download and Process ZIP
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Create temp directory
+          mkdir -p temp
+          cd temp
+          
+          # Get extension name and create safe name
+          EXTENSION_NAME="${{ fromJSON(steps.parse.outputs.result).name }}"
+          if [ -z "$EXTENSION_NAME" ]; then
+            echo "Extension name not found in issue"
+            exit 1
+          fi
+          
+          # Generate safe name for directory
+          SAFE_NAME=$(echo "$EXTENSION_NAME" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-zA-Z0-9-]/-/g')
+          echo "Extension name: $EXTENSION_NAME"
+          echo "Safe name for directory: $SAFE_NAME"
+          
+          # Download ZIP with new name
+          ZIP_URL="${{ fromJSON(steps.parse.outputs.result).zip_url }}"
+          echo "Original ZIP URL: $ZIP_URL"
+          
+          if [[ "$ZIP_URL" == *"user-images.githubusercontent.com"* ]]; then
+            curl -L -o "${SAFE_NAME}.zip" "$ZIP_URL"
+          else
+            FILE_ID=$(echo "$ZIP_URL" | grep -o '/files/[0-9]\+/' | grep -o '[0-9]\+')
+            DOWNLOAD_URL=$(curl -s -H "Authorization: token $GITHUB_TOKEN" \
+              -H "Accept: application/vnd.github.v3+json" \
+              "https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.issue.number }}/comments" | \
+              jq -r --arg file_id "$FILE_ID" '.[] | 
+                select(.body | contains($file_id)) | 
+                capture("(?<url>https://github\\.com/[^)]+\\.zip)") | 
+                .url')
+            
+            if [ -z "$DOWNLOAD_URL" ]; then
+              DOWNLOAD_URL="$ZIP_URL"
+            fi
+            
+            curl -L -H "Authorization: token $GITHUB_TOKEN" \
+              -H "Accept: application/octet-stream" \
+              -o "${SAFE_NAME}.zip" "$DOWNLOAD_URL"
+          fi
+          
+          # Extract ZIP
+          unzip "${SAFE_NAME}.zip"
+          
+          # Find extracted directory
+          EXTRACTED_DIR=$(find . -type d -mindepth 1 -maxdepth 1 | head -n 1)
+          if [ -n "$EXTRACTED_DIR" ]; then
+            cd "$EXTRACTED_DIR"
+            echo "Entered directory: $EXTRACTED_DIR"
+            
+            # Find and rename CRX file
+            CRX_FILE=$(find . -type f -name "*.crx" | head -n 1)
+            if [ -z "$CRX_FILE" ]; then
+              CRX_FILE=$(find . -type f -name "build.crx" -o -name "extension.crx" -o -name "dist.crx" | head -n 1)
+            fi
+            
+            # Find and rename icon file
+            ICON_FILE=$(find . -type f -name "icon*.png" | head -n 1)
+            if [ -z "$ICON_FILE" ]; then
+              ICON_FILE=$(find . -type f -name "*.png" | head -n 1)
+            fi
+            
+            if [ -z "$CRX_FILE" ] || [ -z "$ICON_FILE" ]; then
+              echo "Missing required files"
+              echo "CRX file found: $CRX_FILE"
+              echo "Icon file found: $ICON_FILE"
+              echo "Directory contents:"
+              find . -type f
+              exit 1
+            fi
+            
+            # Create final directory
+            mkdir -p "../../extensions/${SAFE_NAME}"
+            
+            # Copy and rename files
+            cp "$CRX_FILE" "../../extensions/${SAFE_NAME}/${SAFE_NAME}.crx"
+            cp "$ICON_FILE" "../../extensions/${SAFE_NAME}/icon.png"
+            
+            echo "Files renamed and copied successfully:"
+            ls -la "../../extensions/${SAFE_NAME}/"
+          fi
+          
+          # Clean up
+          cd ../..
+          rm -rf temp
+
+      - name: Update Extensions JSON
+        run: |
+          SAFE_NAME=$(echo "${{ fromJSON(steps.parse.outputs.result).name }}" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-zA-Z0-9-]/-/g')
+          
+          # Generate URLs using GitHub API format
+          REPO="${{ github.repository }}"
+          BRANCH="main"
+          PATH_PREFIX="extensions/${SAFE_NAME}"
+          
+          # Use GitHub API URLs
+          DOWNLOAD_URL="https://api.github.com/repos/${REPO}/contents/${PATH_PREFIX}/${SAFE_NAME}.crx"
+          ICON_URL="https://api.github.com/repos/${REPO}/contents/${PATH_PREFIX}/icon.png"
+          GITHUB_URL="https://github.com/${REPO}/tree/${BRANCH}/${PATH_PREFIX}"
+
+          # Initialize extensions.json if it doesn't exist
+          if [ ! -f extensions.json ]; then
+            echo '{"extensions": []}' > extensions.json
+          fi
+
+          # Convert tags array to JSON string
+          TAGS_JSON=$(echo '${{ toJSON(fromJSON(steps.parse.outputs.result).tags) }}')
+
+          # Update existing entry or add new one
+          jq --arg id "${{ fromJSON(steps.parse.outputs.result).id }}" \
+             --arg name "${{ fromJSON(steps.parse.outputs.result).name }}" \
+             --arg desc "${{ fromJSON(steps.parse.outputs.result).description }}" \
+             --arg ver "${{ fromJSON(steps.parse.outputs.result).version }}" \
+             --arg author "${{ fromJSON(steps.parse.outputs.result).author }}" \
+             --arg download "$DOWNLOAD_URL" \
+             --arg icon "$ICON_URL" \
+             --arg github "$GITHUB_URL" \
+             --argjson tags "$TAGS_JSON" \
+             --arg now "$(date -u +"%Y-%m-%dT%H:%M:%SZ")" \
+             '
+             def update_extension:
+               if .id == $id then
+                 . + {
+                   "name": $name,
+                   "description": $desc,
+                   "version": $ver,
+                   "author": $author,
+                   "download_url": $download,
+                   "icon_url": $icon,
+                   "github_url": $github,
+                   "tags": $tags,
+                   "updated_at": $now
+                 }
+               else
+                 .
+               end;
+             
+             if (.extensions | map(.id == $id) | any)
+             then
+               .extensions |= map(update_extension)
+             else
+               .extensions += [{
+                 "id": $id,
+                 "name": $name,
+                 "description": $desc,
+                 "version": $ver,
+                 "author": $author,
+                 "download_url": $download,
+                 "icon_url": $icon,
+                 "github_url": $github,
+                 "tags": $tags,
+                 "created_at": $now,
+                 "updated_at": $now
+               }]
+             end
+             ' extensions.json > temp.json && mv temp.json extensions.json
+
+      - name: Commit and Push Changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          
+          # Create directories if they don't exist
+          mkdir -p extensions
+          
+          # Stage all changes
+          git add -f extensions/
+          git add -f extensions.json
+          
+          # Only commit if there are changes
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update extension: ${{ fromJSON(steps.parse.outputs.result).name }}"
+            git push
+          fi
+
+      - name: Comment on Issue
+        uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.payload.issue.number,
+              body: `Extension has been successfully ${context.payload.action === 'opened' ? 'added' : 'updated'}!\n\nDownload URL: ${process.env.DOWNLOAD_URL}\nIcon URL: ${process.env.ICON_URL}\nGitHub URL: ${process.env.GITHUB_URL}`
+            }); 

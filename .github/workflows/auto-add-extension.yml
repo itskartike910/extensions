@@ -1,0 +1,38 @@
+name: Auto Add Extension
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  add_extension:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Parse issue and update extensions.json
+        run: |
+          echo "${{ github.event.issue.body }}" > new_extension.json
+          node <<EOF
+          const fs = require('fs');
+          const newExt = JSON.parse(fs.readFileSync('new_extension.json', 'utf8'));
+          const extFile = 'extensions.json';
+          let extensions = [];
+          if (fs.existsSync(extFile)) {
+            extensions = JSON.parse(fs.readFileSync(extFile, 'utf8'));
+          }
+          extensions.push(newExt);
+          fs.writeFileSync(extFile, JSON.stringify(extensions, null, 2));
+          EOF
+
+      - name: Commit and push changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Add extension from issue #${{ github.event.issue.number }}"
+          branch: main

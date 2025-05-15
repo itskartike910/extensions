@@ -67,3 +67,4 @@ jobs:
         with:
           commit_message: "Add extension from issue #${{ github.event.issue.number }}"
           branch: main
+          file_pattern: extensions.json

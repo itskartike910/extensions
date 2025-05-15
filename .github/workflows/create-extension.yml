@@ -8,6 +8,7 @@ jobs:
   process-extension:
     if: contains(github.event.issue.labels.*.name, 'new-extension')
     runs-on: ubuntu-latest
+    environment: extension-approval
     permissions:
       contents: write
       issues: write

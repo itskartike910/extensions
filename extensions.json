@@ -135,36 +135,6 @@
       ],
       "created_at": "2025-02-26T15:00:00Z",
       "updated_at": "2025-02-26T15:00:00Z"
-    },
-    {
-      "id": "Testing Extension",
-      "name": "Testing",
-      "description": "Just For Testing",
-      "version": "0.0.1",
-      "author": "Dev Jangid",
-      "download_url": "https://raw.githubusercontent.com/itskartike910/extensions/main/extensions/testing/testing.crx",
-      "icon_url": "https://raw.githubusercontent.com/itskartike910/extensions/main/extensions/testing/icon.png",
-      "github_url": "https://github.com/itskartike910/extensions/tree/main/extensions/testing",
-      "tags": [
-        "Nothing"
-      ],
-      "created_at": "2025-05-15T10:19:41Z",
-      "updated_at": "2025-05-15T10:19:41Z"
-    },
-    {
-      "id": "new",
-      "name": "dev",
-      "description": "dev",
-      "version": "0.0.1",
-      "author": "dev",
-      "download_url": "https://raw.githubusercontent.com/itskartike910/extensions/main/extensions/dev/dev.crx",
-      "icon_url": "https://raw.githubusercontent.com/itskartike910/extensions/main/extensions/dev/icon.png",
-      "github_url": "https://github.com/itskartike910/extensions/tree/main/extensions/dev",
-      "tags": [
-        "nothing"
-      ],
-      "created_at": "2025-05-15T10:27:51Z",
-      "updated_at": "2025-05-15T10:27:51Z"
     }
   ]
 }

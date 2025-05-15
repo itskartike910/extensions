@@ -103,7 +103,7 @@ jobs:
             FILE_ID=$(echo "$ZIP_URL" | grep -o '/files/[0-9]\+/' | grep -o '[0-9]\+')
             DOWNLOAD_URL=$(curl -s -H "Authorization: token $GITHUB_TOKEN" \
               -H "Accept: application/vnd.github.v3+json" \
-              "https://raw.github.com/repos/${{ github.repository }}/issues/${{ github.event.issue.number }}/comments" | \
+              "https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.issue.number }}/comments" | \
               jq -r --arg file_id "$FILE_ID" '.[] | 
                 select(.body | contains($file_id)) | 
                 capture("(?<url>https://github\\.com/[^)]+\\.zip)") | 
@@ -173,9 +173,9 @@ jobs:
           PATH_PREFIX="extensions/${SAFE_NAME}"
           
           # Use GitHub API URLs
-          DOWNLOAD_URL="https://api.github.com/repos/${REPO}/contents/${PATH_PREFIX}/${SAFE_NAME}.crx"
-          ICON_URL="https://api.github.com/repos/${REPO}/contents/${PATH_PREFIX}/icon.png"
-          GITHUB_URL="https://github.com/${REPO}/tree/${BRANCH}/${PATH_PREFIX}"
+          DOWNLOAD_URL="https://raw.githubusercontent.com/${REPO}/contents/${PATH_PREFIX}/${SAFE_NAME}.crx"
+          ICON_URL="https://raw.githubusercontent.com/${REPO}/contents/${PATH_PREFIX}/icon.png"
+          GITHUB_URL="https://raw.githubusercontent.com/${REPO}/tree/${BRANCH}/${PATH_PREFIX}"
 
           # Initialize extensions.json if it doesn't exist
           if [ ! -f extensions.json ]; then

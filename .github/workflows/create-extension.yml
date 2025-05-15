@@ -8,6 +8,7 @@ jobs:
   process-extension:
     if: contains(github.event.issue.labels.*.name, 'new-extension')
     runs-on: ubuntu-latest
+    environment: extension-approval 
     permissions:
       contents: write
       issues: write
@@ -164,6 +165,7 @@ jobs:
           rm -rf temp
 
       - name: Update Extensions JSON
+        id: update_json
         run: |
           SAFE_NAME=$(echo "${{ fromJSON(steps.parse.outputs.result).name }}" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-zA-Z0-9-]/-/g')
           
@@ -176,6 +178,10 @@ jobs:
           DOWNLOAD_URL="https://raw.githubusercontent.com/${REPO}/main/${PATH_PREFIX}/${SAFE_NAME}.crx"
           ICON_URL="https://raw.githubusercontent.com/${REPO}/main/${PATH_PREFIX}/icon.png"
           GITHUB_URL="https://github.com/${REPO}/tree/${BRANCH}/${PATH_PREFIX}"
+
+          echo "download_url=$DOWNLOAD_URL" >> $GITHUB_OUTPUT
+          echo "icon_url=$ICON_URL" >> $GITHUB_OUTPUT
+          echo "github_url=$GITHUB_URL" >> $GITHUB_OUTPUT
 
           # Initialize extensions.json if it doesn't exist
           if [ ! -f extensions.json ]; then
@@ -262,5 +268,5 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: context.payload.issue.number,
-              body: `Extension has been successfully ${context.payload.action === 'opened' ? 'added' : 'updated'}!\n\nDownload URL: ${process.env.DOWNLOAD_URL}\nIcon URL: ${process.env.ICON_URL}\nGitHub URL: ${process.env.GITHUB_URL}`
+              body: `Extension has been successfully ${context.payload.action === 'opened' ? 'added' : 'updated'}!\n\nDownload URL: ${steps.update_json.outputs.download_url}\nIcon URL: ${steps.update_json.outputs.icon_url}\nGitHub URL: ${steps.update_json.outputs.github_url}`
             }); 

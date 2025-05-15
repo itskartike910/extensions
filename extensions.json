@@ -135,6 +135,21 @@
       ],
       "created_at": "2025-02-26T15:00:00Z",
       "updated_at": "2025-02-26T15:00:00Z"
+    },
+    {
+      "id": "final testing",
+      "name": "testing",
+      "description": "testing",
+      "version": "0.0.1",
+      "author": "dev",
+      "download_url": "https://api.github.com/repos/itskartike910/extensions/contents/extensions/testing/testing.crx",
+      "icon_url": "https://api.github.com/repos/itskartike910/extensions/contents/extensions/testing/icon.png",
+      "github_url": "https://github.com/itskartike910/extensions/tree/main/extensions/testing",
+      "tags": [
+        "nothing"
+      ],
+      "created_at": "2025-05-15T06:41:26Z",
+      "updated_at": "2025-05-15T06:41:26Z"
     }
   ]
 }

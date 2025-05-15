@@ -173,8 +173,8 @@ jobs:
           PATH_PREFIX="extensions/${SAFE_NAME}"
           
           # Use GitHub API URLs
-          DOWNLOAD_URL="https://raw.githubusercontent.com/${REPO}/contents/${PATH_PREFIX}/${SAFE_NAME}.crx"
-          ICON_URL="https://raw.githubusercontent.com/${REPO}/contents/${PATH_PREFIX}/icon.png"
+          DOWNLOAD_URL="https://api.github.com/repos/${REPO}/contents/${PATH_PREFIX}/${SAFE_NAME}.crx"
+          ICON_URL="https://api.github.com/repos/${REPO}/contents/${PATH_PREFIX}/icon.png"
           GITHUB_URL="https://github.com/${REPO}/tree/${BRANCH}/${PATH_PREFIX}"
 
           # Initialize extensions.json if it doesn't exist

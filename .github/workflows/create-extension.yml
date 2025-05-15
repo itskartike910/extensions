@@ -175,7 +175,7 @@ jobs:
           # Use GitHub API URLs
           DOWNLOAD_URL="https://raw.githubusercontent.com/${REPO}/contents/${PATH_PREFIX}/${SAFE_NAME}.crx"
           ICON_URL="https://raw.githubusercontent.com/${REPO}/contents/${PATH_PREFIX}/icon.png"
-          GITHUB_URL="https://raw.githubusercontent.com/${REPO}/tree/${BRANCH}/${PATH_PREFIX}"
+          GITHUB_URL="https://github.com/${REPO}/tree/${BRANCH}/${PATH_PREFIX}"
 
           # Initialize extensions.json if it doesn't exist
           if [ ! -f extensions.json ]; then

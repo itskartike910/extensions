@@ -135,22 +135,6 @@
       ],
       "created_at": "2025-02-26T15:00:00Z",
       "updated_at": "2025-02-26T15:00:00Z"
-    },
-    {
-      "id": "unique-id",
-      "name": "My Cool Extension",
-      "version": "1.0.0",
-      "author": "username",
-      "download_url": "https://example.com/extension.crx",
-      "icon_url": "https://example.com/icon.png",
-      "github_url": "https://github.com/username/repo",
-      "description": "Optional description",
-      "tags": [
-        "tag1",
-        "tag2"
-      ],
-      "created_at": "2025-05-15T05:33:53.793Z",
-      "updated_at": "2025-05-15T05:33:53.793Z"
     }
   ]
 }

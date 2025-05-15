@@ -135,6 +135,21 @@
       ],
       "created_at": "2025-02-26T15:00:00Z",
       "updated_at": "2025-02-26T15:00:00Z"
+    },
+    {
+      "id": "newone one",
+      "name": "Testing",
+      "description": "Testing Extension for zkProof",
+      "version": "0.0.1",
+      "author": "WootzApp",
+      "download_url": "https://raw.githubusercontent.com/itskartike910/extensions/main/extensions/testing/testing.crx",
+      "icon_url": "https://raw.githubusercontent.com/itskartike910/extensions/main/extensions/testing/icon.png",
+      "github_url": "https://github.com/itskartike910/extensions/tree/main/extensions/testing",
+      "tags": [
+        "zkProofing"
+      ],
+      "created_at": "2025-05-15T10:38:45Z",
+      "updated_at": "2025-05-15T10:38:45Z"
     }
   ]
 }

@@ -243,8 +243,6 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          
-          # Create directories if they don't exist
           mkdir -p extensions
           
           # Stage all changes
@@ -256,6 +254,8 @@ jobs:
             echo "No changes to commit"
           else
             git commit -m "Update extension: ${{ fromJSON(steps.parse.outputs.result).name }}"
+            # Pull latest changes and rebase before pushing
+            git pull --rebase origin main
             git push
           fi
 

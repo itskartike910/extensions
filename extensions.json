@@ -165,6 +165,21 @@
       ],
       "created_at": "2025-05-15T06:52:57Z",
       "updated_at": "2025-05-15T06:52:57Z"
+    },
+    {
+      "id": "bhai",
+      "name": "bhai",
+      "description": "bhai",
+      "version": "0.0.0",
+      "author": "bhai",
+      "download_url": "https://raw.githubusercontent.com/itskartike910/extensions/main/extensions/bhai/bhai.crx",
+      "icon_url": "https://raw.githubusercontent.com/itskartike910/extensions/main/extensions/bhai/icon.png",
+      "github_url": "https://github.com/itskartike910/extensions/tree/main/extensions/bhai",
+      "tags": [
+        "bhai"
+      ],
+      "created_at": "2025-05-15T06:57:08Z",
+      "updated_at": "2025-05-15T06:57:08Z"
     }
   ]
 }

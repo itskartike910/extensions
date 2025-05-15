@@ -8,7 +8,6 @@ jobs:
   process-extension:
     if: contains(github.event.issue.labels.*.name, 'new-extension')
     runs-on: ubuntu-latest
-    environment: extension-approval 
     permissions:
       contents: write
       issues: write
@@ -262,11 +261,15 @@ jobs:
 
       - name: Comment on Issue
         uses: actions/github-script@v6
+        env:
+          DOWNLOAD_URL: ${{ steps.update_json.outputs.download_url }}
+          ICON_URL: ${{ steps.update_json.outputs.icon_url }}
+          GITHUB_URL: ${{ steps.update_json.outputs.github_url }}
         with:
           script: |
             github.rest.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: context.payload.issue.number,
-              body: `Extension has been successfully ${context.payload.action === 'opened' ? 'added' : 'updated'}!\n\nDownload URL: ${steps.update_json.outputs.download_url}\nIcon URL: ${steps.update_json.outputs.icon_url}\nGitHub URL: ${steps.update_json.outputs.github_url}`
+              body: `Extension has been successfully ${context.payload.action === 'opened' ? 'added' : 'updated'}!\n\nDownload URL: ${process.env.DOWNLOAD_URL}\nIcon URL: ${process.env.ICON_URL}\nGitHub URL: ${process.env.GITHUB_URL}`
             }); 

@@ -18,17 +18,48 @@ jobs:
 
       - name: Parse issue and update extensions.json
         run: |
-          echo "${{ github.event.issue.body }}" > new_extension.json
-          node <<EOF
+          echo '${{ github.event.issue.body }}' > new_extension.json
+          node <<'EOF'
           const fs = require('fs');
-          const newExt = JSON.parse(fs.readFileSync('new_extension.json', 'utf8'));
-          const extFile = 'extensions.json';
-          let extensions = [];
-          if (fs.existsSync(extFile)) {
-            extensions = JSON.parse(fs.readFileSync(extFile, 'utf8'));
+          const requiredFields = [
+            "id",
+            "name",
+            "version",
+            "author",
+            "download_url",
+            "icon_url",
+            "github_url"
+          ];
+
+          // Read new extension details from issue body
+          let newExt;
+          try {
+            newExt = JSON.parse(fs.readFileSync('new_extension.json', 'utf8'));
+          } catch (e) {
+            console.error("❌ Issue body is not valid JSON:", e.message);
+            process.exit(1);
           }
-          extensions.push(newExt);
-          fs.writeFileSync(extFile, JSON.stringify(extensions, null, 2));
+
+          // Validate required fields
+          const missing = requiredFields.filter(f => !(f in newExt));
+          if (missing.length > 0) {
+            console.error("❌ Missing required fields in JSON:", missing.join(', '));
+            process.exit(1);
+          }
+
+          // Add timestamps if not present
+          const now = new Date().toISOString();
+          if (!newExt.created_at) newExt.created_at = now;
+          if (!newExt.updated_at) newExt.updated_at = now;
+
+          // Read and update extensions.json
+          const extFile = 'extensions.json';
+          let extensionsData = { extensions: [] };
+          if (fs.existsSync(extFile)) {
+            extensionsData = JSON.parse(fs.readFileSync(extFile, 'utf8'));
+          }
+          extensionsData.extensions.push(newExt);
+          fs.writeFileSync(extFile, JSON.stringify(extensionsData, null, 2));
           EOF
 
       - name: Commit and push changes

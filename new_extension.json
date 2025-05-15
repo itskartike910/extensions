@@ -1,0 +1,11 @@
+{
+  "id": "unique-id",
+  "name": "My Cool Extension",
+  "version": "1.0.0",
+  "author": "username",
+  "download_url": "https://example.com/extension.crx",
+  "icon_url": "https://example.com/icon.png",
+  "github_url": "https://github.com/username/repo",
+  "description": "Optional description",
+  "tags": ["tag1", "tag2"]
+}

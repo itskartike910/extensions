@@ -135,6 +135,21 @@
       ],
       "created_at": "2025-02-26T15:00:00Z",
       "updated_at": "2025-02-26T15:00:00Z"
+    },
+    {
+      "id": "",
+      "name": "Testing Extension",
+      "description": "use new extension",
+      "version": "23.78.5",
+      "author": "Unknown",
+      "download_url": "https://raw.githubusercontent.com/itskartike910/extensions/main/extensions/testing-extension/testing-extension.crx",
+      "icon_url": "https://raw.githubusercontent.com/itskartike910/extensions/main/extensions/testing-extension/icon.png",
+      "github_url": "https://github.com/itskartike910/extensions/tree/main/extensions/testing-extension",
+      "tags": [
+        "["
+      ],
+      "created_at": "2025-05-20T13:06:58Z",
+      "updated_at": "2025-05-20T13:06:58Z"
     }
   ]
 }
